@@ -17,6 +17,20 @@ void PromicroBoard::begin() {
       pinMode(BUTTON_PIN, INPUT_PULLUP);
     #endif
 
+        #ifdef PIN_BUZZER
+      pinMode(PIN_BUZZER, OUTPUT);
+      digitalWrite(PIN_BUZZER, LOW);
+      // Test beep on startup
+      digitalWrite(PIN_BUZZER, HIGH);
+      delay(100);
+      digitalWrite(PIN_BUZZER, LOW);
+      delay(100);
+      digitalWrite(PIN_BUZZER, HIGH);
+      delay(100);
+      digitalWrite(PIN_BUZZER, LOW);
+    #endif
+
+
     #if defined(PIN_BOARD_SDA) && defined(PIN_BOARD_SCL)
       Wire.setPins(PIN_BOARD_SDA, PIN_BOARD_SCL);
     #endif
