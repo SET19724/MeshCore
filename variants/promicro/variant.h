@@ -80,7 +80,7 @@
 #define BUTTON_PIN           PIN_BUTTON1
 
 // BUZZER PIN
-#define PIN_BUZZER           9   // P1.07
+#define PIN_BUZZER 8  // GPIO 8 - Buzzer
 
 
 
