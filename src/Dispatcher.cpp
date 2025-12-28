@@ -210,6 +210,10 @@ void Dispatcher::checkRecv() {
 }
 
 void Dispatcher::processRecvPacket(Packet* pkt) {
+    #ifdef PIN_BUZZER
+  buzzerBeep(100);  // Beep na odbór wiadomości
+  #endif
+  
   DispatcherAction action = onRecvPacket(pkt);
   if (action == ACTION_RELEASE) {
     _mgr->free(pkt);
