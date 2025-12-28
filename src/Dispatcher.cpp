@@ -334,4 +334,28 @@ unsigned long Dispatcher::futureMillis(int millis_from_now) const {
   return _ms->getMillis() + millis_from_now;
 }
 
+
+// ============================================
+// BUZZER FUNCTIONS IMPLEMENTATION
+// ============================================
+
+#ifdef PIN_BUZZER
+
+void buzzerOn() {
+    digitalWrite(PIN_BUZZER, HIGH);
+}
+
+void buzzerOff() {
+    digitalWrite(PIN_BUZZER, LOW);
+}
+
+void buzzerBeep(uint16_t ms) {
+    buzzerOn();
+    delay(ms);
+    buzzerOff();
+}
+
+#endif
+
+
 }
