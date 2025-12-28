@@ -83,4 +83,15 @@ public:
   }
 
   bool startOTAUpdate(const char* id, char reply[]) override;
+
+  // ============================================
+  // BUZZER FUNCTIONS
+  // ============================================
+  #ifdef PIN_BUZZER
+  void buzzerOn();
+  void buzzerOff();
+  void buzzerBeep(uint16_t ms);
+  #endif
+};
+
 };
