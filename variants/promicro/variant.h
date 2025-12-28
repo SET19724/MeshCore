@@ -79,4 +79,8 @@
 #define PIN_BUTTON1          (6)
 #define BUTTON_PIN           PIN_BUTTON1
 
+// BUZZER PIN
+#define PIN_BUZZER           9   // P1.07
+
+
 
