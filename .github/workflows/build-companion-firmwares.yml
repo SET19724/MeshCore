@@ -35,8 +35,11 @@ jobs:
       - name: Build Firmwares
         env:
           FIRMWARE_VERSION: ${{ env.GIT_TAG_VERSION }}
-          PLATFORM: ${{ github.event.inputs.platforms || 'promicro' }}
-        run: /usr/bin/env bash build.sh build-companion-firmwares
+          PLATFORMS: ${{ github.event.inputs.platforms || 'promicro' }}
+        run: |
+          echo "Building platform: $PLATFORMS"
+          /usr/bin/env bash build.sh build-companion-firmwares "$PLATFORMS"
+
 
       - name: Copy Firmwares to Output
         run: |
