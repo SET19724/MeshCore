@@ -29,8 +29,19 @@ jobs:
       - name: Copy Firmwares to Output
         run: |
           mkdir -p out
-          find .pio/build -name "firmware.*" -type f -exec cp {} out/ \;
+          echo "=== Znajduję wszystkie firmware'y ==="
+          find .pio/build -name "firmware.*" -type f
+          echo "=== Kopiuję do out/ ==="
+          cp .pio/build/*/firmware.elf out/ 2>/dev/null || true
+          cp .pio/build/*/firmware.bin out/ 2>/dev/null || true
+          cp .pio/build/*/firmware.hex out/ 2>/dev/null || true
+          cp .pio/build/*/firmware.zip out/ 2>/dev/null || true
+          cp .pio/build/*/firmware.uf2 out/ 2>/dev/null || true
+          echo "=== Zawartość out/ ==="
           ls -la out/
+          echo "=== Pliki w out/ ==="
+          find out/ -type f
+
 
       - name: Upload Workflow Artifacts
         uses: actions/upload-artifact@v4
