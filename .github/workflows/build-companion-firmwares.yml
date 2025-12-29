@@ -35,10 +35,11 @@ jobs:
       - name: Build Firmwares
         env:
           FIRMWARE_VERSION: ${{ env.GIT_TAG_VERSION }}
-          PLATFORM: ${{ github.event.inputs.platforms || 'promicro' }}
+          SELECTED_PLATFORM: ${{ github.event.inputs.platforms || 'ProMicro_companion_radio_usb' }}
         run: |
-          echo "Building platform: $PLATFORM"
-          /usr/bin/env bash build.sh build-firmware "$PLATFORM"
+          echo "Building platform: $SELECTED_PLATFORM"
+          /usr/bin/env bash build.sh build-companion-firmwares "$SELECTED_PLATFORM"
+
 
 
 
