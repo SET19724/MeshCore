@@ -32,6 +32,12 @@ $ sh build.sh build-room-server-firmwares
 EOF
 }
 
+PLATFORM=${1:-promicro}
+echo "Selected platform: $PLATFORM"
+
+# Potem zmień linię z pio run na:
+pio run -e "$PLATFORM"
+
 # Catch cries for help before doing anything else.
 case $1 in
   help|usage|-h|--help)
