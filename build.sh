@@ -32,7 +32,8 @@ $ sh build.sh build-room-server-firmwares
 EOF
 }
 
-PLATFORM=${1:-promicro}
+COMMAND=$1
+PLATFORM=${2:-ProMicro_companion_radio_usb}
 echo "Selected platform: $PLATFORM"
 
 # Potem zmień linię z pio run na:
